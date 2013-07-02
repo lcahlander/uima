@@ -1,0 +1,2200 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns:css="http://macVmlSchemaUri" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name=Title content="Syntatica UIMA Development Environment Setup">
+<meta name=Keywords content="Syntatica, UIMA, Eclipse, Maven, Subversion">
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 2008">
+<meta name=Originator content="Microsoft Word 2008">
+<link rel=File-List href="uima_setup_files/filelist.xml">
+<link rel=Edit-Time-Data href="uima_setup_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Syntatica UIMA Development Environment Setup</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Loren Cahlander</o:Author>
+  <o:Keywords>Syntatica, UIMA, Eclipse, Maven, Subversion</o:Keywords>
+  <o:Template>Normal.dotm</o:Template>
+  <o:LastAuthor>Loren Cahlander</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>46</o:TotalTime>
+  <o:Created>2009-02-02T16:38:00Z</o:Created>
+  <o:LastSaved>2009-02-02T16:38:00Z</o:LastSaved>
+  <o:Pages>7</o:Pages>
+  <o:Words>899</o:Words>
+  <o:Characters>5129</o:Characters>
+  <o:Lines>42</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>6298</o:CharactersWithSpaces>
+  <o:Version>12.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:DrawingGridHorizontalSpacing>18 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>18 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:UseNormalStyleForList/>
+   <w:DontUseIndentAsNumberingTabStop/>
+   <w:DontGrowAutofit/>
+   <w:FELineBreak11/>
+   <w:WW11IndentRules/>
+   <w:DontAutofitConstrainedTables/>
+   <w:AutofitLikeWW11/>
+   <w:HangulWidthLikeWW11/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="276">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Courier New";
+	panose-1:2 7 3 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 2 1 2 1 8 4 8 7 8;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 65536 0 -2147483648 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Lucida Grande";
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Monaco;
+	panose-1:2 0 5 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:786799;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2142239184 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>Setting up a Syntatica
+development environment.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>Download and install Java 1.5
+or 1.6<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>Download and install eclipse
+J2EE<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>Launch eclipse and add the
+plug-ins<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-no-proof:yes'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-no-proof:yes'>Subclipse<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-no-proof:yes'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-no-proof:yes'>AspectJ<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-no-proof:yes'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-no-proof:yes'>Equinox AspectJ<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-no-proof:yes'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-no-proof:yes'>Maven2
+(m2eclipse)<o:p></o:p></span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-no-proof:yes'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-no-proof:yes'>UIMA<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Picture_x0020_4" o:spid="_x0000_i1025" type="#_x0000_t75"
+ style='width:414pt;height:309pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image001.png" o:title="" croptop="1165f"
+  cropbottom="2330f" cropleft="1328f" cropright="1328f"/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img width=416 height=311
+src="uima_setup_files/image002.png" v:shapes="Picture_x0020_4"><![endif]></span></p>
+
+<p class=MsoNormal>Install the subclipse plug-in for eclipse.</p>
+
+<p class=MsoNormal>Select Help-&gt;Software Updates…</p>
+
+<p class=MsoNormal>Click on ‘Add Site…’</p>
+
+<p class=MsoNormal>Enter:</p>
+
+<p class=MsoNormal>http://subclipse.tigris.org/update_1.4.x</p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_2" o:spid="_x0000_i1026" type="#_x0000_t75" style='width:412pt;
+ height:239pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image003.png" o:title="" croptop="1589f"
+  cropbottom="3177f" cropleft="1429f" cropright="1429f"/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img width=414 height=241
+src="uima_setup_files/image004.png" v:shapes="Picture_x0020_2"><![endif]></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_3" o:spid="_x0000_i1027" type="#_x0000_t75" style='width:367pt;
+ height:132pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image005.png" o:title="" croptop="7177f"
+  cropbottom="14353f" cropleft="4993f" cropright="4577f"/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img width=369 height=134
+src="uima_setup_files/image006.png" v:shapes="Picture_x0020_3"><![endif]></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:431pt;height:258pt;
+ visibility:visible'>
+ <v:imagedata src="uima_setup_files/image007.png" o:title=""/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img width=433 height=260
+src="uima_setup_files/image008.png" v:shapes="_x0000_i1028"><![endif]></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a
+href="http://download.eclipse.org/tools/ajdt/34/dev/update"><span
+style='font-family:"Lucida Grande"'>http://download.eclipse.org/tools/ajdt/34/dev/update</span></a><span
+style='font-family:"Lucida Grande";color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-outline-level:1'>Install Equinox AspectJ plug-in
+for eclipse</p>
+
+<p class=MsoNormal><span style='font-family:"Lucida Grande";color:black'>http://download.eclipse.org/tools/ajdt/34/dev/equinox-aspects</span></p>
+
+<p class=MsoNormal>Install the Maven2 plug-in for eclipse.</p>
+
+<p class=MsoNormal>http://m2eclipse.sonatype.org/update/</p>
+
+<p class=MsoNormal>Install the UIMA plug-in for eclipse.</p>
+
+<p class=MsoNormal><span style='font-family:"Lucida Grande";color:black'>http://www.apache.org/dist/incubator/uima/eclipse-update-site</span></p>
+
+<span style='font-size:12.0pt;font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+EN-US'><br clear=ALL style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>Checkout the UIMA core and sandbox from the UIMA SVN
+repositories.</p>
+
+<p class=MsoNormal>Open the ‘SVN Repository Exploring’ perspective.</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+ style='width:305pt;height:161pt'>
+ <v:imagedata src="uima_setup_files/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=307 height=163
+src="uima_setup_files/image010.png" v:shapes="_x0000_i1029"><![endif]></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+ style='width:343pt;height:419pt'>
+ <v:imagedata src="uima_setup_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=345 height=421
+src="uima_setup_files/image012.png" v:shapes="_x0000_i1030"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Select <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Add SVN Repository<o:p></o:p></i></b></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75"
+ style='width:408pt;height:213pt'>
+ <v:imagedata src="uima_setup_files/image013.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=410 height=215
+src="uima_setup_files/image014.png" v:shapes="_x0000_i1031"><![endif]></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1032" type="#_x0000_t75" style='width:6in;height:340pt'>
+ <v:imagedata src="uima_setup_files/image015.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=434 height=342
+src="uima_setup_files/image016.png" v:shapes="_x0000_i1032"><![endif]></span></p>
+
+<p class=MsoNormal>Enter <a
+href="http://svn.apache.org/repos/asf/incubator/uima/uimaj/trunk"><b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'>http://svn.apache.org/repos/asf/incubator/uima/uimaj/trunk</i></b></a></p>
+
+<p class=MsoNormal>Click on <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Finish</i></b></p>
+
+<p class=MsoNormal>Select <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Add SVN Repository<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Enter <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><a
+href="http://svn.apache.org/repos/asf/incubator/uima/sandbox/trunk">http://svn.apache.org/repos/asf/incubator/uima/sandbox/trunk</a><o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Click on <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Finish</i></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">&nbsp;</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1033" type="#_x0000_t75" style='width:409pt;height:480pt'>
+ <v:imagedata src="uima_setup_files/image017.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=411 height=482
+src="uima_setup_files/image018.png" v:shapes="_x0000_i1033"><![endif]></span><span
+style="mso-spacerun: yes">&nbsp;</span>Expand the view of the two repositories.</p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1034" type="#_x0000_t75" style='width:411pt;height:478pt'>
+ <v:imagedata src="uima_setup_files/image019.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=413 height=480
+src="uima_setup_files/image020.png" v:shapes="_x0000_i1034"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>Select all of the projects
+within each repository.<span style="mso-spacerun: yes">&nbsp; </span>Right
+click on the projects and select ‘Checkout…’.</span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1035" type="#_x0000_t75" style='width:6in;height:431pt'>
+ <v:imagedata src="uima_setup_files/image021.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=434 height=433
+src="uima_setup_files/image022.png" v:shapes="_x0000_i1035"><![endif]></span></p>
+
+<p class=MsoNormal>Click on <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Finish</i></b></p>
+
+<span style='font-size:12.0pt;font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+EN-US'><br clear=ALL style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
+style='mso-no-proof:yes'>Compile the necessary projects<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_24" o:spid="_x0000_i1036" type="#_x0000_t75" style='width:6in;
+ height:262pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image023.png" o:title=""/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=434 height=264
+src="uima_setup_files/image024.png" v:shapes="Picture_x0020_24"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>cd uimaj<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>mvn install<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>cd ../uimaj-core<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'>mvn install<o:p></o:p></span></p>
+
+<p class=MsoNormal>cd../PearPackagingMavenPlugin</p>
+
+<p class=MsoNormal><span style='font-family:Helvetica;mso-bidi-font-family:
+Helvetica'>mvn install:install-file -DgroupId=org.apache.uima
+-DartifactId=uimaj-core -Dversion=2.2.2-incubating -Dpackaging=jar
+-Dfile=../uimaj-core/target/uima-core.jar</span></p>
+
+<p class=MsoNormal>mvn install</p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:
+normal'>Answer ‘y’ to all questions posed.<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>cd ../WhitespaceTokenizer</p>
+
+<p class=MsoNormal>mvn install:install-file -DgroupId=org.apache.uima
+-DartifactId=PearPackagingMavenPlugin -Dversion=2.2.2-incubating
+-Dpackaging=jar
+-Dfile=../PearPackagingMavenPlugin/target/uima-pear-maven-plugin.jar</p>
+
+<p class=MsoNormal>mvn install</p>
+
+<p class=MsoNormal>cd ../Tagger</p>
+
+<p class=MsoNormal>mvn install:install-file -DgroupId=org.apache.uima
+-DartifactId=WhitespaceTokenizer -Dversion=2.2.2-incubating -Dpackaging=jar
+-Dfile=../WhitespaceTokenizer/target/uima-an-wst.jar</p>
+
+<p class=MsoNormal>mvn install</p>
+
+<p class=MsoNormal>cd../SimpleServer</p>
+
+<p class=MsoNormal>mvn install</p>
+
+<span style='font-size:12.0pt;font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+EN-US'><br clear=ALL style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Create a
+simple web application using the above components.</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Create a project
+for a webapp to assemble the above compiled modules and create a sample web
+application to run the UIMA pipes against.</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Switch to
+the Java perspective</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Select <b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'>File-&gt;New-&gt;Project…</i></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_15" o:spid="_x0000_i1037" type="#_x0000_t75" style='width:431pt;
+ height:414pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image025.png" o:title=""/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=433 height=416
+src="uima_setup_files/image026.png" v:shapes="Picture_x0020_15"><![endif]></span></p>
+
+<p class=MsoNormal>Select <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Maven-&gt;Maven Project<o:p></o:p></i></b></p>
+
+<p class=MsoNormal>Click <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Next</i></b></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_16" o:spid="_x0000_i1038" type="#_x0000_t75" style='width:431pt;
+ height:450pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image027.png" o:title=""/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=433 height=452
+src="uima_setup_files/image028.png" v:shapes="Picture_x0020_16"><![endif]></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Click on the <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Advanced</i></b> link and unselect <b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'>Separate
+projects for modules</i></b>.</p>
+
+<p class=MsoNormal>Click <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Next</i></b></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_17" o:spid="_x0000_i1039" type="#_x0000_t75" style='width:6in;
+ height:520pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image029.png" o:title=""/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=434 height=522
+src="uima_setup_files/image030.png" v:shapes="Picture_x0020_17"><![endif]></span></p>
+
+<p class=MsoNormal>From the <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Catalog</i></b> selector, click on <b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'>Internal</i></b></p>
+
+<p class=MsoNormal>Select the entry in the list for the artifact <b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'>maven-archetype-webapp</i></b></p>
+
+<p class=MsoNormal>Click <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Next<o:p></o:p></i></b></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_18" o:spid="_x0000_i1040" type="#_x0000_t75" style='width:6in;
+ height:520pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image031.png" o:title=""/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=434 height=522
+src="uima_setup_files/image032.png" v:shapes="Picture_x0020_18"><![endif]></span></p>
+
+<p class=MsoNormal>Enter the group id <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>com.syntatica.uima</i></b></p>
+
+<p class=MsoNormal>The artifact id is the eclipse project name.<span
+style="mso-spacerun: yes">&nbsp; </span>The example is <b style='mso-bidi-font-weight:
+normal'><i style='mso-bidi-font-style:normal'>parts-of-speech</i></b></p>
+
+<p class=MsoNormal>Click <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'>Finish<o:p></o:p></i></b></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_19" o:spid="_x0000_i1041" type="#_x0000_t75" style='width:6in;
+ height:328pt;visibility:visible'>
+ <v:imagedata src="uima_setup_files/image033.png" o:title=""/>
+ <v:textbox style='mso-rotate-with-shape:t'/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=434 height=330
+src="uima_setup_files/image034.png" v:shapes="Picture_x0020_19"><![endif]></span></p>
+
+<p class=MsoNormal>In the generated pom.xml file in the project, replace the <b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'>dependencies</i></b>
+tag with the following:</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>dependencies</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>junit</span></u><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>junit</span></u><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp; </span><span
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>3.8.1</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:black'>test</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>org</span></u><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:black'>.<u>apache</u>.<u>uima</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:black'>SimpleServer</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:black'>2.3.0-incubating-SNAPSHOT</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>org</span></u><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:black'>.<u>apache</u>.<u>uima</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>Tagger</span></u><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:black'>2.3.0-incubating-SNAPSHOT</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>org</span></u><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:black'>.<u>apache</u>.<u>uima</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>uimaj</span></u><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:black'>-core</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span><span
+style='mso-tab-count:1'>&nbsp;&nbsp; </span></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:black'>2.3.0-incubating-SNAPSHOT</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>uima</u></span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>WhitespaceTokenizer</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>2.3.0-incubating-SNAPSHOT</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>compile</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>uima</u></span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>PearPackagingMavenPlugin</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>2.3.0-incubating-SNAPSHOT</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>provided</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>uima</u></span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>uimaj</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>-test-<u>util</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>2.2.2-incubating</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>compile</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>uima</u></span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>uimaj</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>-component-test-<u>util</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>2.2.2-incubating</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>compile</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>javax</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>.<u>servlet</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>servlet</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>-<u>api</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>2.4</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>uima</u>.<u>xmlbeans</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>xbean</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>1.0</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>system</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>systemPath</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>${<u>basedir</u>}/../SimpleServer/<u>lib</u>/<u>xbean</u>.jar</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>systemPath</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style='mso-tab-count:2'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>uima</u>.<u>xmlbeans</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>jsr</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>-173-<u>api</u></span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>1.0</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>system</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>systemPath</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>${<u>basedir</u>}/../SimpleServer/<u>lib</u>/jsr173_1.0_api.jar</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>systemPath</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>uima</u>.<u>xmlbeans</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>uima</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>-simple-server-<u>xbean</u></span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>artifactId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>1.0</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>system</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>systemPath</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>${<u>basedir</u>}/../SimpleServer/<u>lib</u>/<u>uima</u>-simple-server-<u>xbean</u>.jar</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>systemPath</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>junit</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>junit</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>4.0</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>compile</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>mortbay</u>.<u>jetty</u></span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>groupId</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>jetty</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>6.1.8</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>version</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>compile</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>org</span></u><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'>.<u>apache</u>.<u>httpcomponents</u></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>groupId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>httpclient</span></u><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>artifactId</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>4.0-alpha2</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>version</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:#3F7F7F'>scope</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:black'>compile</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:teal'>&lt;/</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:#3F7F7F'>scope</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun:
+yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependency</span><span style='font-size:8.0pt;mso-bidi-font-size:
+11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;color:teal'>&gt;</span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;mso-pagination:
+none;mso-layout-grid-align:none;text-autospace:none'><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:black'><span style="mso-spacerun: yes">&nbsp; </span></span><span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";
+mso-bidi-font-family:Monaco;color:teal'>&lt;/</span><span style='font-size:
+8.0pt;mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:
+Monaco;color:#3F7F7F'>dependencies</span><span style='font-size:8.0pt;
+mso-bidi-font-size:11.0pt;font-family:"Courier New";mso-bidi-font-family:Monaco;
+color:teal'>&gt;</span><span style='font-size:8.0pt;mso-bidi-font-size:11.0pt;
+font-family:"Courier New";mso-bidi-font-family:Monaco'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>Your environment is now set up.<span style="mso-spacerun:
+yes">&nbsp; </span>Please refer to the <b style='mso-bidi-font-weight:normal'><i
+style='mso-bidi-font-style:normal'><span style='mso-ascii-font-family:Cambria;
+mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Cambria;mso-hansi-theme-font:
+minor-latin;color:black'><a href="uima_tagger_workflow.html">Syntatica UIMA Workflow configuration</a> </span></i></b><span
+style='mso-ascii-font-family:Cambria;mso-ascii-theme-font:minor-latin;
+mso-hansi-font-family:Cambria;mso-hansi-theme-font:minor-latin;color:black'>document
+to configure the processing workflow.</span><span style='mso-ascii-font-family:
+Cambria;mso-ascii-theme-font:minor-latin;mso-hansi-font-family:Cambria;
+mso-hansi-theme-font:minor-latin'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
